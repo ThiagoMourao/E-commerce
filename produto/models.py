@@ -4,20 +4,6 @@ import os
 from PIL import Image
 from django.db import models
 
-"""
- Produto:
-            nome - Char
-            descricao_curta - Text
-            descricao_longa - Text
-            imagem - Image
-            slug - Slug
-            preco_marketing - Float
-            preco_marketing_promocional - Float
-            tipo - Choices
-                ('V', 'Variável'),
-                ('S', 'Simples'),
-"""
-
 
 class Produto(models.Model):
     nome = models.CharField(max_length=255)
@@ -68,16 +54,6 @@ class Produto(models.Model):
 
         if self.imagem:
             self.resize_image(self.imagem, max_image_size)
-
-
-"""
-Variacao:
-            nome - char
-            produto - FK Produto
-            preco - Float
-            preco_promocional - Float
-            estoque - Int
-"""
 
 
 class Variacao(models.Model):
